@@ -21,6 +21,7 @@
     "@nestjs/platform-express": "^8.1.1",
     "@nestjs/sequelize": "^8.0.0",
     "@nestjs/swagger": "^5.2.0",
+    "mysql2": "^2.3.3",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "reflect-metadata": "^0.1.13",
@@ -28,6 +29,7 @@
     "rxjs": "^7.4.0",
     "sequelize": "^6.15.0",
     "sequelize-typescript": "^2.1.2",
+    "superagent": "^7.1.1",
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
