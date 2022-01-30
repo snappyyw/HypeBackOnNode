@@ -3,10 +3,12 @@ import { SequelizeModule } from '@nestjs/sequelize';
 
 import { UsersModule } from './users/users.module';
 import { User } from './users/user.model';
+import { TasksService } from './tasks/tasks.service';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   controllers: [],
-  providers: [],
+  providers: [TasksService],
   imports: [
     SequelizeModule.forRoot({
       dialect: 'postgres',
@@ -26,6 +28,7 @@ import { User } from './users/user.model';
       },
     }),
     UsersModule,
+    TasksModule,
   ],
 })
 export class AppModule {}

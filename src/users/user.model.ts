@@ -1,14 +1,14 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
 
-interface UserCreationAttrs {
+interface IUserCreation {
   email: string;
   name: string;
   password: string;
 }
 
 @Table({ tableName: 'users' })
-export class User extends Model<User, UserCreationAttrs> {
+export class User extends Model<User, IUserCreation> {
   @Column({
     type: DataType.INTEGER,
     unique: true,
