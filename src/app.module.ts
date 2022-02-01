@@ -12,12 +12,12 @@ import { TasksModule } from './tasks/tasks.module';
   imports: [
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: 'ec2-34-242-89-204.eu-west-1.compute.amazonaws.com',
+      host: 'ec2-18-203-64-130.eu-west-1.compute.amazonaws.com',
       port: 5432,
-      username: 'eotedefiefmofj',
+      username: 'cxqairyiwxeids',
       password:
-        'c0be0f56c313fb05c0fe2f6a2fb8f9d6615067aeab5ed1606dcafa6400728d36',
-      database: 'd5nm8umnf23q09',
+        '6397c999bd0fa8650cedfa21fdbadb51b1775d493f9620197c1f5ceda23ed0db',
+      database: 'd1jlo8a580if9o',
       models: [User],
       autoLoadModels: true,
       dialectOptions: {
