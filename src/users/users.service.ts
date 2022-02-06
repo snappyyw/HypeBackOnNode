@@ -11,4 +11,8 @@ export class UsersService {
   async createUser(dto: UserDto) {
     return await this.userRepository.create(dto);
   }
+
+  async getUserByEmail(email: string) {
+    return await this.userRepository.findOne({where: {email}, include: {all: true}})
+  }
 }

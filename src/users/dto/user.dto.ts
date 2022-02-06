@@ -10,3 +10,11 @@ export class UserDto {
   @ApiProperty({ example: 'Password' })
   readonly password: string;
 }
+
+export class AuthUserDto {
+  @ApiProperty({ example: 'Email' })
+  readonly email: string;
+
+  @ApiProperty({ example: 'Password' })
+  readonly password: string;
+}
