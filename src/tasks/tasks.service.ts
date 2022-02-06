@@ -7,8 +7,9 @@ import { generateTasks } from 'src/utils/functionHelper';
 export class TasksService {
   async createTasks(dto: CreateTasksDto) {
     const arrayTasks: TasksDto[] = [];
+    const count = dto.count > 10 ? 10 : dto.count;
 
-    for (let i: number = 0; i < dto.count; i++) {
+    for (let i: number = 0; i < count; i++) {
       arrayTasks.push(generateTasks());
     }
 

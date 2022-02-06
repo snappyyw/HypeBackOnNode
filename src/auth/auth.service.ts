@@ -24,7 +24,7 @@ export class AuthService {
 
     if (candidate) {
       throw new HttpException(
-        'Пользователь с таким email сущесвует',
+        'Пользователь с таким email существует',
         HttpStatus.BAD_REQUEST,
       );
     }
