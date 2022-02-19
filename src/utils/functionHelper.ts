@@ -27,15 +27,15 @@ export function generateTasks(): TasksDto {
   const answer3: number = inTextNumberForOtherTask * 33.52;
   const answer4: number = inTextNumberForOtherTask * 0.0580892857;
   const answer5: number = inTextNumberForOtherTask * 99.1071429;
-  const answer6: number = inTextNumberForOtherTask * 3 / 91 * 22.4;
-  const answer7: number = inTextNumberForOtherTask * 2 / 184.36 * 22.4;
-  const answer8: number = inTextNumberForOtherTask * 12 / 402.24;
-  const answer9: number = inTextNumberForOtherTask * 817 / 2 * 55.85;
+  const answer6: number = ((inTextNumberForOtherTask * 3) / 91) * 22.4;
+  const answer7: number = ((inTextNumberForOtherTask * 2) / 184.36) * 22.4;
+  const answer8: number = (inTextNumberForOtherTask * 12) / 402.24;
+  const answer9: number = ((inTextNumberForOtherTask * 817) / 2) * 55.85;
   const answer10: number = inTextNumberForOtherTask * 15.025;
   const answer11: number = inTextNumberForOtherTask * 8.16176471;
   const answer12: number = inTextNumberForOtherTask * 16.4313725;
-  const answer13: number = inTextNumberForOtherTask * 8 / 3310 * 22.4;
-  const answer14: number = inTextNumberForOtherTask / 180 * 22.4;
+  const answer13: number = ((inTextNumberForOtherTask * 8) / 3310) * 22.4;
+  const answer14: number = (inTextNumberForOtherTask / 180) * 22.4;
 
   let taskArray: TasksDto[] = [
     {
@@ -123,7 +123,7 @@ export function generateTasks(): TasksDto {
         'Определите количество теплоты, которое выделится при образовании ' +
         inTextNumberForOtherTask.toFixed(2) +
         'г MgO  в результате реакции горения магния, с помощью термохимического уравнения.',
-      answer: answer10 + ' кДж.',
+      answer: answer10.toFixed(2) + ' кДж.',
       formula: formula3,
     },
     {
@@ -167,10 +167,3 @@ export function generateTasks(): TasksDto {
 
   return taskArray[randomTask];
 }
-
-export function validateEmail(email) {
-  const re =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
-

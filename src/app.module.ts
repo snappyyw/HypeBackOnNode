@@ -6,6 +6,8 @@ import { User } from './users/user.model';
 import { TasksService } from './tasks/tasks.service';
 import { TasksModule } from './tasks/tasks.module';
 import { AuthModule } from './auth/auth.module';
+import { FavouritesModule } from './favourites/favourites.module';
+import { Favourites } from './favourites/favourites.model';
 
 @Module({
   controllers: [],
@@ -19,7 +21,7 @@ import { AuthModule } from './auth/auth.module';
       password:
         '6397c999bd0fa8650cedfa21fdbadb51b1775d493f9620197c1f5ceda23ed0db',
       database: 'd1jlo8a580if9o',
-      models: [User],
+      models: [User, Favourites],
       autoLoadModels: true,
       dialectOptions: {
         ssl: {
@@ -31,6 +33,7 @@ import { AuthModule } from './auth/auth.module';
     UsersModule,
     TasksModule,
     AuthModule,
+    FavouritesModule,
   ],
 })
 export class AppModule {}
