@@ -29,12 +29,35 @@ export class FavouritesService {
     });
   }
 
-  async getAllFavourites(auth: string) {
-    const token = auth.split(' ')[1];
+  async getTotalCountFavourites(auth: string){
+    const token = auth?.split(' ')[1];
     const user = this.jwtService.verify(token);
 
-    return await this.favouritesRepository.findAll({
+    const data = await this.favouritesRepository.findAndCountAll({
       where: { userId: user.id },
+      limit: 0,
+      offset: 0, 
     });
+
+    return {
+      totalCount: data?.count,
+    }
+  }
+
+  async getAllFavourites(obj) {
+    const token = obj?.header?.split(' ')[1];
+    const user = this.jwtService.verify(token);
+
+    const data = await this.favouritesRepository.findAndCountAll({
+      where: { userId: user.id },
+      limit: obj.dto.count,
+      offset: (obj.dto.page - 1) * obj.dto.count, 
+    });
+
+    return {
+      totalCount: data?.count,
+      totalPage: Math.ceil(data?.count / obj.dto.count),
+      array: data?.rows,
+    }
   }
 }

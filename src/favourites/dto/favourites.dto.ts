@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, MaxLength, MinLength } from 'class-validator';
+import { IsString, MaxLength, MinLength, IsInt } from 'class-validator';
 
 export class AddFavouritesDto {
   @ApiProperty({ example: 'Formula' })
@@ -22,3 +22,19 @@ export class AddFavouritesDto {
 
   readonly token: string;
 }
+
+export class PaginationDto {
+  @ApiProperty({ example: 5 })
+  @IsInt({ message: 'Formula должен быть строкой' })
+  readonly count: number;
+
+  @ApiProperty({ example: 5 })
+  @IsInt({ message: 'Formula должен быть строкой' })
+  readonly page: number;
+}
+
+export class TotalCountDto {
+  @ApiProperty({ example: 5 })
+  readonly totalCount: number;
+}
+
