@@ -11,6 +11,10 @@ async function start() {
     .setTitle('Самый хайповый бэкенд')
     .setDescription('Документация REST API')
     .setVersion('1.0')
+    .addBearerAuth(
+      { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
+      'access-token',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

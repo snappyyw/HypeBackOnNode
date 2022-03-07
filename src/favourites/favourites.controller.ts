@@ -6,10 +6,16 @@ import {
   Headers,
   Get,
   Query,
+  Delete,
 } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { AddFavouritesDto, PaginationDto, TotalCountDto } from './dto/favourites.dto';
+import {
+  AddFavouritesDto,
+  PaginationDto,
+  TotalCountDto,
+  DeleteDto,
+} from './dto/favourites.dto';
 import { FavouritesService } from './favourites.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
@@ -34,7 +40,21 @@ export class FavouritesController {
   @UseGuards(JwtAuthGuard)
   @Get('getAllFavourites')
   getAllFavourites(@Headers() header, @Query() dto: PaginationDto) {
-    return this.favouritesService.getAllFavourites({header: header.authorization, dto});
+    return this.favouritesService.getAllFavourites({
+      header: header.authorization,
+      dto,
+    });
+  }
+
+  @ApiOperation({ summary: 'Delete favourites' })
+  @ApiResponse({ status: 200 })
+  @UseGuards(JwtAuthGuard)
+  @Delete('deleteFavourites')
+  deleteFavourites(@Headers() header, @Query() dto: DeleteDto) {
+    return this.favouritesService.deleteFavourites({
+      header: header.authorization,
+      dto,
+    });
   }
 
   @ApiOperation({ summary: 'Get total count favourites' })

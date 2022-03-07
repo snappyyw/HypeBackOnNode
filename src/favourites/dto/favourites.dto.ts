@@ -38,3 +38,7 @@ export class TotalCountDto {
   readonly totalCount: number;
 }
 
+export class DeleteDto {
+  @ApiProperty({ example: 1 })
+  readonly id: number;
+}
