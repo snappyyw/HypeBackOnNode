@@ -23,9 +23,11 @@ export class FavouritesService {
       userId: user.id,
     });
 
-    return await this.favouritesRepository.findAll({
+    await this.favouritesRepository.findAll({
       where: { userId: user.id },
     });
+
+    throw new HttpException('Запись добавлена', HttpStatus.OK);
   }
 
   async deleteFavourites(obj) {
