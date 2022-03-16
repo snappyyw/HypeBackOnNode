@@ -10,6 +10,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../users/user.model';
 
 interface IAddFavourites {
+  id: string;
   formula: string;
   text: string;
   answer: string;
@@ -18,13 +19,14 @@ interface IAddFavourites {
 
 @Table({ tableName: 'favourites' })
 export class Favourites extends Model<Favourites, IAddFavourites> {
+  @ApiProperty({ example: 'Id' })
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.STRING,
     unique: true,
-    autoIncrement: true,
+    allowNull: false,
     primaryKey: true,
   })
-  id: number;
+  id: string;
 
   @ApiProperty({ example: 'Formula' })
   @Column({

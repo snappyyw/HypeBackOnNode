@@ -15,8 +15,9 @@ export class FavouritesService {
   async addFavourites(dto: AddFavouritesDto) {
     const token = dto.token.split(' ')[1];
     const user = this.jwtService.verify(token);
-
+    
     await this.favouritesRepository.create({
+      id: dto.id,
       answer: dto.answer,
       formula: dto.formula,
       text: dto.text,

@@ -20,6 +20,12 @@ export class AddFavouritesDto {
   @MaxLength(100, { message: 'Answer не може содержать более 100 смволов' })
   readonly answer: string;
 
+  @ApiProperty({ example: 'Id' })
+  @IsString({ message: 'Id должно быть строкой' })
+  @MinLength(1, { message: 'Id не може содежать менее 1 символов' })
+  @MaxLength(100, { message: 'Id не може содержать более 100 смволов' })
+  readonly id: string;
+
   readonly token: string;
 }
 
